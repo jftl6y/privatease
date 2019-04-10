@@ -97,13 +97,13 @@ In internal mode the ASE gets assigned an private IP from the subnet where it wa
 
 Once the ASE is created, update the ILB certificate with the mycontoso.com.pfx certificate. Note that this step can take up to one hour.
 
-#### 3.3.2 Deploy an API
+#### 3.3.2 Deploy an API in the ASE
 
 Once the ILB certificate has been deploy, create a new service plan and API APP in the ASE. If this app is called for example "api1", it will receive a URI of https://api1.mycontosoase.com".
 
 ### 3.4 DNS Configuration
 
-Once API Management and ASE are running and an API has been created, you need to configure the DNS so that the apis point to the ASE's internal IP, for example:
+Once API Management and ASE have been deployed, configure the DNS so that the APIs point to the ASE's ILB IP, for example:
 
 ```
 Name                          Type   Value
@@ -113,6 +113,10 @@ api1.mycontosoase.com.        CNAME  ilbase.mycontosoase.com.
 ```
 
 Where 10.0.0.1 is the ASE's ILB IP.
+
+### 3.5 Configure API Management
+
+Follow the inscructions to create an API defintion using the ASE API URI defined in the step above.
 
 ## 4.0 References
 
