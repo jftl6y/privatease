@@ -1,4 +1,4 @@
-# How to use self-size certificates with API Management and ASE (App Service Environment)
+# How to use self-size certificates with API Management and App Service Environment (ASE)
 
 ## 1.0 Who is this for
 
