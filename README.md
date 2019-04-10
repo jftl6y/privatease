@@ -29,7 +29,7 @@ $secret = "StrongP@ssword"
 $pfxPassword = ConvertTo-SecureString -String $secret -Force -AsPlainText
 $certStore = "cert:\CurrentUser\My"
 
-# Generate a a rootCA
+# Generate a rootCA using the domain name
 $rootCertAse = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 -Subject "CN=$domain" -KeyExportPolicy Exportable `
 -HashAlgorithm sha256 -KeyLength 2048 `
