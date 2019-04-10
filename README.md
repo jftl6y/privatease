@@ -20,7 +20,7 @@ INSERT IMAGE
 
 ### 3.1 Generate the rootCA and ASE ILB self-signed wildcard certificate
 
-This self-signedd certificate will be used in the ASE
+Run this Powershell script to generate the rootCA certificate and the ASE ILB self-signed wildcard certificate.
 
 ```
 # Set the variables
@@ -91,7 +91,8 @@ In internal mode the ASE gets assigned an private IP from the subnet where it wa
 - Select internal for the mode 
 - Enter: mycontosoase.com for the domain.
 
-![Screenshot](create-internal-ase.jpg)
+<a href="create-internal-ase.jpg"><img src="create-internal-ase.jpg" width="75%" alt="Screenshot"></a>
+
 
 #### 3.3.1 Update the ILB Certificate
 
