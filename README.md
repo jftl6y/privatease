@@ -22,7 +22,7 @@ This is for a scenario where an organization may want to use API Management to c
 
 Run this Powershell script to generate the rootCA certificate and the ASE ILB self-signed wildcard certificate.
 
-```
+```powershell
 # Set the variables
 $domain = "mycontosoase.com"
 $secret = "StrongP@ssword"
@@ -54,7 +54,7 @@ Export-PfxCertificate -cert $certAseThumbprint -FilePath "c:\certs\$domain.pfx" 
 
 In internal mode the API Management gets assigned an private IP from the subnet where it was deployed.
 
-```
+```powershell
 # Connect to Azure or log into a cloude shell and skip connecting to azure
 Connect-AzAccount
 
