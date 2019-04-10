@@ -1,20 +1,24 @@
 # How to use self-size certificates with API Management and ASE (App Service Environment)
 
-## Who is this for
+## 1.0 Who is this for
 
 This is for a scenario where an organization may want to use API Management to consume services hosted on an ASE (APP Service environment) possibly during the dev/test phase of development.
 
-<INSERT DIAGRAM>
+INSERT IMAGE
 
-## Requirements:
+## 2.0 Requirements:
 
+- Generate the rootCA and ASE ILB self-signed wildcard certificate
 - Deploy the APIM Management in internal mode
+  - Install the generated rootCA.cer in the root CA store
 - Deploy the ASE in internal mode
-- Generate the self-signed certificates
+  - Install the generated domain.pfx in as the ASE ILB certificate
+  - Create an API app
+- Configure the DNS to point to the API APP
 
-## Installation Instructions
+## 3.0 Installation Instructions
 
-### Generate root CA and wildcard certificate for the ASE
+### 3.1 Generate the rootCA and ASE ILB self-signed wildcard certificate
 
 This self-signedd certificate will be used in the ASE
 
@@ -46,7 +50,7 @@ $certAseThumbprint = $certStore + "\" + $certAse.Thumbprint
 Export-PfxCertificate -cert $certAseThumbprint -FilePath "c:\certs\$domain.pfx" -Password $pfxPassword
 ```
 
-### Deploy the API Management in internal mode
+### 3.2 Deploy the API Management in internal mode
 
 In internal mode the API Management gets assigned an private IP from the subnet where it was deployed.
 
@@ -66,18 +70,18 @@ $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName 
 # Create the API inside the vnet
 $apimsubnetdata = $vnet.Subnets[1]
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
-$apimServiceName = "ContosoApi"       # API Management service instance name
+$apimServiceName = "mycontosoapim"       # API Management service instance name
 $apimOrganization = "Contoso"         # organization name
 $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 
 ```
 
-Once the ASE is created, deploy the rootCA-mycontoso.com.cer to the root CA store.
+Once the ASE is created, deploy the rootCA-mycontoso.com.cer to the root CA store. This is allow encrypted communication fro the APIM to the ASE.
 
-<INSERT IMAGE>
+INSERT IMAGE
 
-### Deploy the ASE in internal mode
+### 3.3 Deploy the ASE in internal mode
 
 In internal mode the ASE gets assigned an private IP from the subnet where it was deployed. To deploy an ASE:
 
@@ -87,10 +91,16 @@ In internal mode the ASE gets assigned an private IP from the subnet where it wa
 - Select internal for the mode 
 - Enter: mycontosoase.com for the domain.
 
-<INSERT IMAGE>
+INSERT IMAGE
 
 Once the ASE is created, update the ILB certificate with the mycontoso.com.pfx certificate. Note that this step can take up to one hour.
 
-### DNS Configuration
+### 3.4 DNS Configuration
 
 Once API Management and ASE are 
+
+
+## References
+
+- Integrate API Management in an internal VNET with Application Gateway
+  - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
