@@ -91,7 +91,7 @@ In internal mode the ASE gets assigned an private IP from the subnet where it wa
 - Select internal for the mode 
 - Enter: mycontosoase.com for the domain.
 
-INSERT IMAGE
+![Screenshot](create-internal-ase.jpg)
 
 #### 3.3.1 Update the ILB Certificate
 
@@ -106,10 +106,11 @@ Once the ILB certificate has been deploy, create a new service plan and API APP 
 Once API Management and ASE are running and an API has been created, you need to configure the DNS so that the apis point to the ASE's internal IP, for example:
 
 ```
-CNAME 10.0.0.1 api1.mycontosoase.com
+ilbase.mycontosoase.com.      A      10.0.0.5
+api1.mycontosoase.com.        CNAME  ilbase.mycontosoase.com.
 ```
 
-Where 10.0.0.1 is the ASE internal ILB IP
+Where 10.0.0.1 is the ASE's ILB IP.
 
 ## 4.0 References
 
