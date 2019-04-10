@@ -50,9 +50,9 @@ $certAseThumbprint = $certStore + "\" + $certAse.Thumbprint
 Export-PfxCertificate -cert $certAseThumbprint -FilePath "c:\certs\$domain.pfx" -Password $pfxPassword
 ```
 
-### 3.2 Deploy the API Management in internal mode
+### 3.2 Deploy API Management in internal mode
 
-In internal mode the API Management gets assigned an private IP from the subnet where it was deployed.
+Run this Powershell script to create an API Manage instance in Azure:
 
 ```powershell
 # Connect to Azure or log into a cloude shell and skip connecting to azure
@@ -94,13 +94,15 @@ In internal mode the ASE gets assigned an private IP from the subnet where it wa
 <a href="create-internal-ase.jpg"><img src="create-internal-ase.jpg" width="75%" alt="Screenshot"></a>
 
 
-#### 3.3.1 Update the ILB Certificate
+#### 3.3.1 Update the ASE ILB Certificate
 
 Once the ASE is created, update the ILB certificate with the mycontoso.com.pfx certificate. Note that this step can take up to one hour.
 
 #### 3.3.2 Deploy an API in the ASE
 
 Once the ILB certificate has been deploy, create a new service plan and API APP in the ASE. If this app is called for example "api1", it will receive a URI of https://api1.mycontosoase.com".
+
+INSERT IMAGE
 
 ### 3.4 DNS Configuration
 
