@@ -106,6 +106,8 @@ Once the ILB certificate has been deploy, create a new service plan and API APP 
 Once API Management and ASE are running and an API has been created, you need to configure the DNS so that the apis point to the ASE's internal IP, for example:
 
 ```
+Name                          Type   Value
+------------------------------------------------------------
 ilbase.mycontosoase.com.      A      10.0.0.5
 api1.mycontosoase.com.        CNAME  ilbase.mycontosoase.com.
 ```
