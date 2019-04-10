@@ -4,7 +4,7 @@
 
 This is for a scenario where an organization may want to use API Management to consume services hosted on an ASE (APP Service environment) possibly during the dev/test phase of development.
 
-<a href="solution-design.jpg"><img src="solution-design.jpg" width="75%" alt="Screenshot"></a>
+<a href="solution-design.jpg"><img src="solution-design.jpg" alt="Screenshot"></a>
 
 ## 2.0 Requirements:
 
