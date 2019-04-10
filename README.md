@@ -111,7 +111,7 @@ CNAME 10.0.0.1 api1.mycontosoase.com
 
 Where 10.0.0.1 is the ASE internal ILB IP
 
-## References
+## 4.0 References
 
 - Integrate API Management in an internal VNET with Application Gateway
   - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
