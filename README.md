@@ -16,6 +16,13 @@ This is for a scenario where an organization may want to use API Management to c
   - Create an API app
 - Configure the DNS to point to the API APP
 
+### 2.1 Components
+
+
+- <a href="#">Azure Virtual Network</a>  enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
+- <a href="#">Azure API Management</a>  helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services.
+- <a href="#">Azure Application Service Environment (ASE)</a>  host isolated workloads with the same capabilities as App Services.
+
 ## 3.0 Installation Instructions
 
 ### 3.1 Generate the rootCA and ASE ILB self-signed wildcard certificate
