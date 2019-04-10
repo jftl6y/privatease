@@ -123,3 +123,5 @@ Follow the inscructions to create an API defintion using the ASE API URI defined
 
 - Integrate API Management in an internal VNET with Application Gateway
   - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+- Create and use an internal load balancer with an App Service Environment
+  - https://docs.microsoft.com/en-us/azure/app-service/environment/create-ilb-ase
